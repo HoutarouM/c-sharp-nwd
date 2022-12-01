@@ -27,11 +27,19 @@ namespace NWD
 
         private void Calc_NWD(object sender, RoutedEventArgs e)
         {
-            if(int.TryParse(num_a.Text, out int a))
+            int t;
+
+            if (int.TryParse(num_a.Text, out int a))
             {
                 if(int.TryParse(num_b.Text, out int b))
                 {
+                    while(a % b != 0) {
+                        t = a;
+                        a = b;
+                        b = t % b;
+                    }
 
+                    res_field.Text = b.ToString();
                 }
             }
         }
